@@ -17,6 +17,8 @@ struct Recipe{
     var prepration: String?
     var category: String?
     var nutition: String?
+    var calorie: String?
+    var prep: String?
 }
 
 struct Food{
@@ -24,9 +26,10 @@ struct Food{
     var food : [Recipe]
     
     static let allMeals: [Food] = [
-        Food(name: "Breakfast", food: [Recipe(name: "Poha", description: "Light flaky food", image: UIImage(named: "cake"), ingredients: "Poha", prepration: "kjsgr,fjjsd,gv", category: "vegan", nutition: "healthy"),
-                                       Recipe(name: "Aloo Parantha", description: "Stuffed with aloo"),
-                                       Recipe(name: "dalia", description: "Healthy milet")]),
+      Food(name: "Breakfast", food: [Recipe(name: "Poha", description: "Light flaky food", image: UIImage(named: "poha"), ingredients: "Poha", prepration: "Boil poha and mix veggies", category: "vegan", nutition:"healthy", calorie: "200", prep: "10min"),
+                                       Recipe(name: "Aloo Parantha", description: "Stuffed with aloo", image: UIImage(named: "parantha"), ingredients: "Aloo", prepration: "Kneed the dough and stuff allos", category: "veg", nutition: "healthy & tasty" ,calorie: "230", prep: "15min"),
+                                       Recipe(name: "Dalia", description: "Healthy milet", image: UIImage(named: "daliya"), ingredients: "Daliya", prepration: "Boil dalia and eat", category: "veg", nutition: "healthy & nutritious" ,calorie: "130", prep: "20min")]),
+        
         
         Food(name: "Lunch", food: [Recipe(name: "Rajma chawal", description: "Fav of everyone.. OBv"),
                                    Recipe(name: "Curry", description: "Made with lassi"),
