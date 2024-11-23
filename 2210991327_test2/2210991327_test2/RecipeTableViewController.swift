@@ -52,9 +52,12 @@ class RecipeTableViewController: UITableViewController {
         if let cell = sender as? UITableViewCell {
             let indexPath = tableView.indexPath(for: cell)
             
-            let foodToShow = allRecipes[indexPath!.section]
-            let foodItem = foodToShow.food[indexPath!.row]
-            return ViewRecipeTableViewController(coder: coder, foodRecipe: foodToShow)
+          
+               let foodToShow = allRecipes[indexPath!.section]
+               let foodItem = foodToShow.food[indexPath!.row]
+               let viewRecipeVC = ViewRecipeTableViewController(coder: coder)
+               viewRecipeVC?.foodRecipe = foodItem
+               return viewRecipeVC
         }
         return ViewRecipeTableViewController(coder: coder)
     }
