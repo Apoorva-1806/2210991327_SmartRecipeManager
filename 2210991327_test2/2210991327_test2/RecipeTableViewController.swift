@@ -13,6 +13,7 @@ class RecipeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 
     // MARK: - Table view data source
@@ -36,6 +37,8 @@ class RecipeTableViewController: UITableViewController {
         content.text = "\(foodItem.name)"
         content.secondaryText = "\(String(describing: foodItem.description))"
         cell.contentConfiguration = content
+
+        cell.showsReorderControl = true
         return cell
     }
     
