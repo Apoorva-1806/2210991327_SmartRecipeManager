@@ -9,22 +9,32 @@ import UIKit
 
 class ViewRecipeTableViewController: UITableViewController {
 
-    var foodRecipe: Food?
+    var foodRecipe: Recipe?
+  
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var calorielabel: UITextField!
+    @IBOutlet weak var preplabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let recipe = foodRecipe {
+                    nameLabel.text = recipe.name
+                    calorielabel.text = recipe.calorie
+                    preplabel.text = recipe.prepration
+                    imageView.image = recipe.image
+        }
     }
 
-    init? (coder: NSCoder, foodRecipe: Food?) {
-        self.foodRecipe = foodRecipe
-        super.init(coder: coder)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "unwindDone" else { return }
+        let name = nameLabel.text
+        let calorie = calorielabel.text
+        let preps = preplabel.text
+        let image = imageView.image
+        
+        foodRecipe = Recipe(name: name ?? "", image: image, calorie: calorie, prep: preps)
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 
    
 
